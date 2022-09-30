@@ -17,6 +17,7 @@ import { HomeModule } from './home/home.module';
 import { LoginComponent } from './login/login.component';
 import { ReclamationComponent } from './reclamation/reclamation.component';
 import { HttpClientModule } from '@angular/common/http';
+import { ProtocolIneasComponent } from './protocol-ineas/protocol-ineas.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { HttpClientModule } from '@angular/common/http';
     NavbarComponent,
     FooterComponent,
     LoginComponent,
-    ReclamationComponent
+    ReclamationComponent,
+    ProtocolIneasComponent
   ],
   imports: [
     BrowserModule,

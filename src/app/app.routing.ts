@@ -9,6 +9,7 @@ import { SignupComponent } from './signup/signup.component';
 import { LandingComponent } from './landing/landing.component';
 import { LoginComponent } from './login/login.component';
 import { ReclamationComponent } from './reclamation/reclamation.component';
+import { ProtocolIneasComponent } from './protocol-ineas/protocol-ineas.component';
 
 const routes: Routes =[
     { path: 'home',             component: HomeComponent },
@@ -16,6 +17,7 @@ const routes: Routes =[
     { path: 'register',           component: SignupComponent },
     { path: 'landing',          component: LandingComponent },
     { path: 'login',          component: LoginComponent },
+    { path: 'protocoleineas',          component: ProtocolIneasComponent },
     { path: 'reclamation',          component: ReclamationComponent },
     { path: '', redirectTo: 'home', pathMatch: 'full' }
 ];
