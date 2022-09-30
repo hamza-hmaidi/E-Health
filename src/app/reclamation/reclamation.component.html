@@ -19,7 +19,7 @@
       </div>
    </div>
    <div class="list-group">
-    <li class="list-group-item" *ngFor=" let med of medicaments"
+    <li class="list-group-item " *ngFor=" let med of medicaments"
     [hidden]="!isSearched(med)"
     (click)="select(med)">
         {{med}}
@@ -40,7 +40,7 @@
         
         <div class="col-md-8">
             <ul class="list-group">
-                <li class="list-group-item active">
+                <li class="list-group-item active bg-gradient-default">
                     <div class="row">
                         <div class="col col-2"> Médicament</div>
                         <div class="col col-1"> Réference</div>
@@ -99,7 +99,7 @@
                         <ngb-pagination [collectionSize]="50" 
                           aria-label="Default pagination">
                           <ng-template ngbPaginationPrevious><i _ngcontent-c9="" class="fa fa-angle-left"></i></ng-template>
-                          <ng-template ngbPaginationNext><i _ngcontent-c9="" class="fa fa-angle-right"></i></ng-template>
+                          <ng-template ngbPaginationNext><i _ngcontent-c9="" class="fa fa-angle-right "></i></ng-template>
                         </ngb-pagination>
                     </nav>
                 </div>
