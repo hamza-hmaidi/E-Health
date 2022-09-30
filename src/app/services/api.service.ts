@@ -6,8 +6,9 @@ import { VariablesGlobales } from '../shared/VariablesGlobales';
   providedIn: 'root'
 })
 export class ApiService {
-  private baseURL ='https://79a0-196-203-237-137.eu.ngrok.io/'
-  auth_token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjowLCJ1c2VyTmFtZSI6ImRwbSIsImVtYWlsIjoiZHBtQGdtYWlsLmNvbSIsInBhc3N3b3JkIjoiJDJiJDEwJENVMDEyV2lhajFWdjlPcXVhMFdWTS4xTkovcGxvSGRhcGI3S0lIWmUzZUUuY1N2Y3Q3MmZLIiwicm9sZSI6ImFkbWluIiwicGhvdG8iOiJodHRwczovL2lkYXJhdHkuczMudXMtd2VzdC0wMDAuYmFja2JsYXplYjIuY29tL2xvZ29zL2RpcmVjdGlvbi1kZS1sYS1waGFybWFjaWUtZXQtZHUtbWVkaWNhbWVudC5wbmcifSwiaWF0IjoxNjY0NTExNzAzfQ.6FuFyoHPMyoIHXWhq6MnMNzOx9zF1luhRj0mJYnVVEs"
+  private baseURL ='https://d0a6-196-203-237-137.eu.ngrok.io/'
+  //auth_token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo0LCJ1c2VyTmFtZSI6Indob2xlc2FsZXIxIiwiZW1haWwiOiJ3aG9sZXNhbGVyQGdtYWlsLmNvbSIsInBhc3N3b3JkIjoiJDJiJDEwJDJuUXdkNTFkYTNLbEVXalRqSVZjWHU0bHRhNVhvNVd2RWdhZy93NGpsNE1rY3FQNWN4Lm1pIiwicm9sZSI6Indob2xlc2FsZXIiLCJwaG90byI6Imh0dHBzOi8vaWRhcmF0eS5zMy51cy13ZXN0LTAwMC5iYWNrYmxhemViMi5jb20vbG9nb3MvZGlyZWN0aW9uLWRlLWxhLXBoYXJtYWNpZS1ldC1kdS1tZWRpY2FtZW50LnBuZyJ9LCJpYXQiOjE2NjQ1Mjg4Mzl9.u28SUBba8oStqjdpA7YcxyMTEglvjiKUohbZY9uG6A8"
+  auth_token = localStorage.getItem('token')
   constructor(private http:HttpClient) { }
 
   public postReclamation(med:string):Observable<any>{
@@ -24,7 +25,7 @@ export class ApiService {
     const headers = new HttpHeaders({
       'Authorization': `Bearer ${this.auth_token}`
     });
-    return this.http.get(this.baseURL+'reclamation/reclamations',{headers})
+    return this.http.post(this.baseURL+'reclamation/reclamations',{},{headers})
   }
 
   public postAlert(alert:any):Observable<any>{
@@ -39,5 +40,13 @@ export class ApiService {
   public signIn(user:any):Observable<any>{
     const body =user
     return this.http.post(this.baseURL+'auth/signin',body)
+  }
+
+  public vote(body:any):Observable<any>{
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${this.auth_token}`
+    });
+    return this.http.post<any>(this.baseURL+'reclamation/respond',body,{headers})
   }
 }

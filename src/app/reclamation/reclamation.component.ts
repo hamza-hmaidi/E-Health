@@ -9,7 +9,12 @@ import { ApiService } from '../services/api.service';
 })
 export class ReclamationComponent implements OnInit {
   medicaments=['panadole','Maxilaz','Efferalgant','Test','paracetamol','antibiotique','allergica','Efkment','maurice']
+  reclamations=[]
   closeModal: string;
+  isAdmin = localStorage.getItem('role')=="admin"
+  isGrossiste = localStorage.getItem('role')=="grossiste"
+  isPharmacist = localStorage.getItem('role')=="pharmacy"
+  @Input() VoteValue
   @Input() searchedMed=''
   selectedMed=''
   constructor(private modalService: NgbModal, private api:ApiService) {}
@@ -20,17 +25,6 @@ export class ReclamationComponent implements OnInit {
     }, (res) => {
       this.closeModal = `Dismissed ${this.getDismissReason(res)}`;
     });
-
-    this.api.getReclamation().subscribe(
-      {
-        next:data=>{
-          console.log(data)
-        },
-        error:error=>{
-          console.log(error)
-        }
-      }
-    )
   }
   showMed(e:any):void{
     console.log(e.target.value)
@@ -69,11 +63,39 @@ export class ReclamationComponent implements OnInit {
       return  `with: ${reason}`;
     }
   }
+  random(id,i):any{
+    if(i){
+      return id+"yes"
+    }
+    return id +"no"
+  }
+  onVote(e,id):void{
+    const body={
+      "response":e,
+      "reclamationId":id
+    }
+    console.log(body)
+    this.api.vote(body).subscribe(
+      {
+        next:data=>{
+          console.log(data)
+          this.VoteValue = data.yes*100/(data.yes+data.no)
+        },
+        error:error=>{
+          console.log(error)
+        }
+      }
+    )
+  }
+
   ngOnInit(): void {
+    console.log(this.isAdmin)
     this.api.getReclamation().subscribe(
       {
         next:data=>{
           console.log(data)
+          this.reclamations=data.data
+          this.VoteValue = data.yes*100/(data.yes+data.no)
         },
         error:error=>{
           console.log(error)

@@ -31,8 +31,8 @@
   </div>
 </ng-template>
    <div class="row">
-        <div class="col-md-3" id="addReclamation">
-            <button class="btn" (click)="triggerModal(modalData)">
+        <div class="col-md-3" id="addReclamation" >
+            <button class="btn" (click)="triggerModal(modalData)" *ngIf="isPharmacist">
                 <i class="fa fa-plus" aria-hidden="true"></i>
                 Ajouter une Réclamation
             </button>           
@@ -44,28 +44,30 @@
                     <div class="row">
                         <div class="col col-2"> Médicament</div>
                         <div class="col col-2"> Réference</div>
-                        <div class="col     col-2"> Source</div>
+                        <div class="col col-2"> Source</div>
                         <div class="col col-2"> Date</div>
                         <div class="col col-2"> Vote</div>
                         <div class="col col-2"> Resultat Vote</div>
                     </div>       
                 </li>
-                <li class="list-group-item">
+                <li *ngFor="let rec of reclamations" class="list-group-item">
                     <div class="row">
-                        <div class="col col-2"> Médicament</div>
-                        <div class="col col-2"> Réference</div>
-                        <div class="col col-2"> Source</div>
-                        <div class="col col-2"> Date</div>
+                        <div class="col col-2"> {{rec.drug}}</div>
+                        <div class="col col-2"> {{rec.id}}</div>
+                        <div class="col col-2"> {{rec.senderRole}}</div>
+                        <div class="col col-2"> {{rec.date |date}}</div>
                         <div class="col col-2"> 
                             <div class="custom-control custom-radio mb-3">
-                                <input name="custom-radio-1" class="custom-control-input" id="customRadio1" type="radio">
-                                <label class="custom-control-label" for="customRadio1">
+                                <input name="vote{{rec.id}}" class="custom-control-input" id="customRadio{{rec.id}}1" type="radio"
+                                (change)="onVote(1,rec.id)">
+                                <label class="custom-control-label" for="customRadio{{rec.id}}1">
                                 <span>Yes</span>
                                 </label>
                             </div>
                             <div class="custom-control custom-radio mb-3">
-                                <input name="custom-radio-1" class="custom-control-input" id="customRadio2" type="radio">
-                                <label class="custom-control-label" for="customRadio2">
+                                <input name="vote{{rec.id}}" class="custom-control-input" id="customRadio{{rec.id}}0" type="radio"
+                                (change)="onVote(0,rec.id)">
+                                <label class="custom-control-label" for="customRadio{{rec.id}}0">
                                 <span>No</span>
                                 </label>
                             </div>
@@ -73,38 +75,33 @@
         
                         
                         <div class="col col-2"> <div class="progress-wrapper">
-                            <div class="progress-info">
+                            <div class="progress-info  " >
                             <div class="progress-label">
                                 <span>Product Disponibility</span>
                             </div>
                             <div class="progress-percentage">
-                                <span>40%</span>
+                                <span>{{rec.yes*100/(rec.yes+rec.no) || "Not Answered"}}</span>
                             </div>
                             </div>
-                            <ngb-progressbar type="default" [value]="25"></ngb-progressbar>
+                            <ngb-progressbar [color]="warn" type="default" [value]="rec.yes*100/(rec.yes+rec.no) || 0"></ngb-progressbar>
                         </div></div>
                     </div>     
                 </li>
-                <li class="list-group-item">
-                    <div class="row">
-                        <div class="col col-2"> Médicament</div>
-                        <div class="col col-2"> Réference</div>
-                        <div class="col col-2"> Source</div>
-                        <div class="col col-2"> Date</div>
-                        <div class="col col-2"> Vote</div>
-                    </div>     
-                </li>
-                <li class="list-group-item">
-                    <div class="row">
-                        <div class="col col-2"> Médicament</div>
-                        <div class="col col-2"> Réference</div>
-                        <div class="col col-2"> Source</div>
-                        <div class="col col-2"> Date</div>
-                        <div class="col col-2"> Vote</div>
-                        <div class="col col-2"> Resultat Vote</div>
-                    </div>     
-                </li>
+               
             </ul> 
+            <div class="container">
+                <div class="row">
+                    <nav aria-label="Page navigation example" id="recpagination">
+                        <ngb-pagination [collectionSize]="50" 
+                          aria-label="Default pagination">
+                          <ng-template ngbPaginationPrevious><i _ngcontent-c9="" class="fa fa-angle-left"></i></ng-template>
+                          <ng-template ngbPaginationNext><i _ngcontent-c9="" class="fa fa-angle-right"></i></ng-template>
+                        </ngb-pagination>
+                    </nav>
+                </div>
+                
+            </div>
+            
         </div>
     </div>
     
