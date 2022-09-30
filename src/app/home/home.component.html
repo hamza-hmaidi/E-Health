@@ -20,7 +20,7 @@
           <h1 class="display-1 text-white">Bienvenu à votre portail médical </h1>
         </div>
         <div class="row">
-          <button class="btn btn-success"> <a [routerLink]="['/login']">LogIn</a> </button>
+          <button class="btn btn-default"> <a [routerLink]="['/login']">Login</a> </button>
         </div>
       </div>
       
@@ -31,7 +31,7 @@
             <div class="card" style="width: 18rem;">
               <div class="card-body">
                 <h5 class="card-title">Actualités</h5>
-                <a href="#" class="btn btn-primary">Consulter</a>
+                <a href="#" class="btn btn-1 btn-outline-default">Consulter</a>
               </div>
             </div>
           </div>
@@ -39,7 +39,7 @@
             <div class="card" style="width: 18rem;">
               <div class="card-body">
                 <h5 class="card-title">Protocoles INEAS</h5>
-                <a href="#" class="btn btn-primary">Consulter</a>
+                <a [routerLink]="['/protocoleineas']" class="btn btn-1 btn-outline-default">Consulter</a>
               </div>
             </div>
           </div>
@@ -47,7 +47,7 @@
             <div class="card" style="width: 18rem;">
               <div class="card-body">
                 <h5 class="card-title">Annonces DPM</h5>
-                <a href="#" class="btn btn-primary">Consulter</a>
+                <a href="#" class="btn btn-1 btn-outline-default">Consulter</a>
               </div>
             </div>
           </div>
