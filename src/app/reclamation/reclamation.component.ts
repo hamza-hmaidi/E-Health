@@ -19,6 +19,24 @@ export class ReclamationComponent implements OnInit {
   selectedMed=''
   constructor(private modalService: NgbModal, private api:ApiService) {}
     
+  ngOnInit(): void {
+    console.log(this.isAdmin)
+    this.api.getReclamation().subscribe(
+      {
+        next:data=>{
+          console.log(data)
+          this.reclamations=data.data
+          this.VoteValue = data.yes*100/(data.yes+data.no)
+        },
+        error:error=>{
+          console.log(error)
+        }
+      }
+    )
+  }
+  f(x:any):any{
+    return Math.floor(x)
+  }
   triggerModal(content) {
     this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((res) => {
       this.closeModal = `Closed with: ${res}`;
@@ -88,21 +106,7 @@ export class ReclamationComponent implements OnInit {
     )
   }
 
-  ngOnInit(): void {
-    console.log(this.isAdmin)
-    this.api.getReclamation().subscribe(
-      {
-        next:data=>{
-          console.log(data)
-          this.reclamations=data.data
-          this.VoteValue = data.yes*100/(data.yes+data.no)
-        },
-        error:error=>{
-          console.log(error)
-        }
-      }
-    )
-  }
+  
 
   
 

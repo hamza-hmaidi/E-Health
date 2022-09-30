@@ -43,18 +43,19 @@
                 <li class="list-group-item active">
                     <div class="row">
                         <div class="col col-2"> Médicament</div>
-                        <div class="col col-2"> Réference</div>
-                        <div class="col col-2"> Source</div>
+                        <div class="col col-1"> Réference</div>
+                        <div class="col col-1"> Source</div>
                         <div class="col col-2"> Date</div>
                         <div class="col col-2"> Vote</div>
                         <div class="col col-2"> Resultat Vote</div>
+                        <div class="col col-2"> Anticipation</div>
                     </div>       
                 </li>
                 <li *ngFor="let rec of reclamations" class="list-group-item">
                     <div class="row">
                         <div class="col col-2"> {{rec.drug}}</div>
-                        <div class="col col-2"> {{rec.id}}</div>
-                        <div class="col col-2"> {{rec.senderRole}}</div>
+                        <div class="col col-1"> {{rec.id}}</div>
+                        <div class="col col-1"> {{rec.senderRole}}</div>
                         <div class="col col-2"> {{rec.date |date}}</div>
                         <div class="col col-2"> 
                             <div class="custom-control custom-radio mb-3">
@@ -76,15 +77,18 @@
                         
                         <div class="col col-2"> <div class="progress-wrapper">
                             <div class="progress-info  " >
-                            <div class="progress-label">
-                                <span>Product Disponibility</span>
-                            </div>
-                            <div class="progress-percentage">
-                                <span>{{rec.yes*100/(rec.yes+rec.no) || "Not Answered"}}</span>
-                            </div>
+                                <div class="progress-label">
+                                    <span>Product Disponibility</span>
+                                </div>
+                                <div class="progress-percentage">
+                                    <span>{{f(rec.yes*100/(rec.yes+rec.no)) || "Not Answered"}}"%"</span>
+                                </div>
                             </div>
                             <ngb-progressbar [color]="warn" type="default" [value]="rec.yes*100/(rec.yes+rec.no) || 0"></ngb-progressbar>
-                        </div></div>
+                        </div>
+                        
+                    </div>
+                    <div class="col col-2">{{rec.risque}}</div>
                     </div>     
                 </li>
                

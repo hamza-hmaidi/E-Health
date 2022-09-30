@@ -14,10 +14,31 @@ export class AlertListComponent implements OnInit {
   @Input() info=''
   selectedMed=''
   isSelected=false
-
-  constructor(private modalService: NgbModal, private api:ApiService) { }
-
+  clicked= false
+  shortages=[{
+    "id": 4,
+    "sender": 0,
+    "senderRole": "admin",
+    "date": 1664508809814,
+    "drug": "ZIAGEN",
+    "description": "Unknown cause"
+}]
+  constructor(private modalService: NgbModal, private api:ApiService) {
+   }
   ngOnInit(): void {
+
+    this.api.getAlert().subscribe(
+      {
+        next: resp => {
+          console.log(resp.data)
+          // this.shortages=resp.data
+          // console.log( this.shortages )
+        }, 
+        error: error=>{
+          console.log(error)
+        }
+      }
+    )
   }
   triggerModal(content) {
     this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((res) => {
@@ -51,20 +72,22 @@ export class AlertListComponent implements OnInit {
     console.log(this.selectedMed)
   }
   addAlert():void{
-    const alert={
-      "drug":this.selectedMed,
-      "description":this.info
-    }
-    this.api.postAlert(alert).subscribe(
-      {
-        next: data => {
-          console.log( data + " alerte ajoutée")
-        }, 
-        error: error=>{
-          console.log(error)
-        }
-      }
-    )
+    this.clicked=true
+    console.log(this.clicked)
+    // const alert={
+    //   "drug":this.selectedMed,
+    //   "description":this.info
+    // }
+    // this.api.postAlert(alert).subscribe(
+    //   {
+    //     next: data => {
+    //       console.log( data + " alerte ajoutée")
+    //     }, 
+    //     error: error=>{
+    //       console.log(error)
+    //     }
+    //   }
+    // )
   }
 
 }

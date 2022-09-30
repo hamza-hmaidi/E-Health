@@ -49,4 +49,10 @@ export class ApiService {
     });
     return this.http.post<any>(this.baseURL+'reclamation/respond',body,{headers})
   }
+  public getAlert():Observable<any>{
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${this.auth_token}`
+    });
+    return this.http.post(this.baseURL+"alert/alerts",{},{headers})
+  }
 }

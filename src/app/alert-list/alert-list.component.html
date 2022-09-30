@@ -48,22 +48,47 @@
         <div class="col-md-9">
             <ul class="list-group">
                 <li class="list-group-item active bg-gradient-default">
-                    <div class="row">
+                    <div class="row" >
                         <div class="col col-2"> Médicament</div>
+                        <div class="col col-2"> Référence Médicament</div>
                         <div class="col col-2"> Date d'alert</div>
-                        <div class="col col-3"> Date estimé d'approvisoinement</div>
                         <div class="col col-5"> Autres Informations</div>
                     </div>       
                 </li>
-                <li class="list-group-item">
+                
+                <li   class="list-group-item">
                     <div class="row">
-                        <div class="col col-2"> Médicament</div>
-                        <div class="col col-2"> Date d'alert</div>
-                        <div class="col col-3"> Date estimé d'approvisoinement</div>
+                        <div class="col col-2"> Ziagen</div>
+                        <div class="col col-2">4 </div>
+                        <div class="col col-2"> 12/12/2022</div>
                         <div class="col col-5"> Autres Informations</div>
                     </div>    
                 </li>
-                
+                <li   class="list-group-item">
+                    <div class="row">
+                        <div class="col col-2"> Acetadote</div>
+                        <div class="col col-2">5</div>
+                        <div class="col col-2"> 12/10/2022</div>
+                        <div class="col col-5"> Autres Informations</div>
+                    </div>  
+                      
+                </li>
+                <li   class="list-group-item">
+                    <div class="row">
+                        <div class="col col-2"> Fosmax</div>
+                        <div class="col col-2">6 </div>
+                        <div class="col col-2"> 12/09/2022</div>
+                        <div class="col col-5"> Autres Informations</div>
+                    </div>    
+                </li>
+                <li   class="list-group-item" [hidden]="!clicked">
+                    <div class="row" >
+                        <div class="col col-2"> Panadole</div>
+                        <div class="col col-2">7 </div>
+                        <div class="col col-2"> 30/09/2022</div>
+                        <div class="col col-5"> Autres Informations</div>
+                    </div>    
+                </li>
             </ul> 
         </div>
     </div>
