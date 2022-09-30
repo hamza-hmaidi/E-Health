@@ -15,6 +15,9 @@ import { FooterComponent } from './shared/footer/footer.component';
 
 import { HomeModule } from './home/home.module';
 import { LoginComponent } from './login/login.component';
+import { IneasComponent } from './ineas/ineas.component';
+import { TabineasComponent } from './tabineas/tabineas.component';
+import { ModalineasComponent } from './modalineas/modalineas.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +27,10 @@ import { LoginComponent } from './login/login.component';
     ProfileComponent,
     NavbarComponent,
     FooterComponent,
-    LoginComponent
+    LoginComponent,
+    IneasComponent,
+    TabineasComponent,
+    ModalineasComponent
   ],
   imports: [
     BrowserModule,

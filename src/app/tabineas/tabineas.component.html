@@ -1,0 +1,66 @@
+<div class="container">
+    
+        <!-- Menu -->
+        
+        <div class="custom-tab-content flex-column flex-md-row">
+          <ul ngbNav #nav1="ngbNav" [(activeId)]="active" class="nav nav-pills justify-content-center" type="pills">
+            <li class="nav-item" [ngbNavItem]="1">
+              <a class="nav-link" ngbNavLink> Maladie 1</a>
+              <ng-template ngbNavContent>
+                <div class="tab-content">
+                  <p class="description">Pour cette maladie; Il est recommendé d'utiliser le médicament x ayant pour réference y.</p>
+                </div>
+              </ng-template>
+            </li>
+            <li class="nav-item" [ngbNavItem]="2">
+              <a class="nav-link" ngbNavLink>
+                Maladie 2
+              </a>
+              <ng-template ngbNavContent>
+                <div class="tab-content">
+                  <p class="description">Pour cette maladie; Il est recommendé d'utiliser le médicament x ayant pour réference y.</p>
+                </div>
+              </ng-template>
+            </li>
+            <li class="nav-item" [ngbNavItem]="3">
+              <a class="nav-link" ngbNavLink>
+                Maladie 3
+              </a>
+              <ng-template ngbNavContent>
+                <div class="tab-content">
+                  <p class="description">Pour cette maladie; Il est recommendé d'utiliser le médicament x ayant pour réference y.</p>
+                </div>
+              </ng-template>
+            </li>
+            <li class="nav-item" [ngbNavItem]="4">
+                <a class="nav-link" ngbNavLink>
+                  Maladie 4
+                </a>
+                <ng-template ngbNavContent>
+                  <div class="tab-content">
+                    <p class="description">Pour cette maladie; Il est recommendé d'utiliser le médicament x ayant pour réference y.</p>
+                  </div>
+                </ng-template>
+              </li>
+              <li class="nav-item" [ngbNavItem]="5">
+                <a class="nav-link" ngbNavLink>
+                  Maladie 5
+                </a>
+                <ng-template ngbNavContent>
+                  <div class="tab-content">
+                    <p class="description">Pour cette maladie; Il est recommendé d'utiliser le médicament x ayant pour réference y.</p>
+                  </div>
+                </ng-template>
+              </li>
+          </ul>
+        </div>
+        <div [ngbNavOutlet]="nav1" class="custom-tab-content"></div>
+    
+      <div class="col-md-4">
+      <button class="btn btn-block btn-default" >
+         Modifier
+      </button>
+      
+    </div>
+</div>
+ 
