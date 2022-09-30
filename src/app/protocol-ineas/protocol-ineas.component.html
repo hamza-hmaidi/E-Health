@@ -1,0 +1,125 @@
+<div class="container" id="AlertList">   
+<div class="row" >
+ <div class="col-lg-6 mt-5 mt-lg-0 center ">
+    <div class="custom-tab-content flex-column flex-md-row">
+      <ul ngbNav #nav1="ngbNav" [(activeId)]="active" class="nav nav-pills justify-content-center" type="pills">
+        <li class="nav-item" [ngbNavItem]="1">
+          <a class="btn btn-1 btn-outline-default" ngbNavLink>Maladie1</a>
+          <ng-template ngbNavContent>
+            <div class="tab-content">
+              <p class="description">Protocole lié à la maladie 1: 
+                Pour remedier à cette maladie, il faut considérer les facteurs suivants ..Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu
+                stumptown aliqua, retro synth master cleanse. Mustache cliche tempor, williamsburg carles vegan
+                helvetica.
+                Reprehenderit butcher retro keffiyeh dreamcatcher synth.</p>
+              <p class="description">Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu
+                stumptown aliqua, retro synth master cleanse.</p>
+            </div>
+          </ng-template>
+        </li>
+        <li class="nav-item" [ngbNavItem]="2">
+          <a class="btn btn-1 btn-outline-default" ngbNavLink>
+            Maladie2
+          </a>
+          <ng-template ngbNavContent>
+            <div class="tab-content">
+              <p class="description">Protocole lié à la maladie 2: 
+                  Pour remedier à cette maladie, il faut considérer les facteurs suivants ..
+                  stumptown aliqua, retro synth master cleanse. Mustache cliche tempor, williamsburg carles vegan
+                    helvetica.
+                    Reprehenderit butcher retro keffiyeh dreamcatcher synth.</p>
+                  <p class="description">Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu
+                    stumptown aliqua, retro synth master cleanse.</p>
+            </div>
+          </ng-template>
+        </li>
+        <li class="nav-item" [ngbNavItem]="3">
+          <a class="btn btn-1 btn-outline-default" ngbNavLink>
+            Maladie3
+          </a>
+          <ng-template ngbNavContent>
+            <div class="tab-content">
+              <p class="description">Protocole lié à la maladie 3: 
+              Pour remedier à cette maladie, il faut considérer les facteurs suivants ..
+              stumptown aliqua, retro synth master cleanse. Mustache cliche tempor, williamsburg carles vegan
+                helvetica.
+                Reprehenderit butcher retro keffiyeh dreamcatcher synth.</p>
+              <p class="description">Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu
+                stumptown aliqua, retro synth master cleanse.</p>
+              
+            </div>
+          </ng-template>
+        </li>
+        <li class="nav-item" [ngbNavItem]="4">
+          <a class="btn btn-1 btn-outline-default" ngbNavLink>
+            Maladie4
+          </a>
+          <ng-template ngbNavContent>
+            <div class="tab-content">
+              <p class="description">Protocole lié à la maladie 4: 
+                  Pour remedier à cette maladie, il faut considérer les facteurs suivants ..
+                  stumptown aliqua, retro synth master cleanse. Mustache cliche tempor, williamsburg carles vegan
+                    helvetica.
+                    Reprehenderit butcher retro keffiyeh dreamcatcher synth.</p>
+                  <p class="description">Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu
+                    stumptown aliqua, retro synth master cleanse.</p>
+            </div>
+          </ng-template>
+        </li>
+        
+      </ul>
+    </div>
+    <div [ngbNavOutlet]="nav1" class="custom-tab-content"></div>
+</div> 
+</div>
+<div class = "row">
+    <div class="col-lg-6 mt-5 mt-lg-0 center ">
+    <ng-template #modalData let-modal>
+        <div class="modal-header">
+          <h4 class="modal-title" id="modal-basic-title">Modifier un protocol</h4>
+          <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="form-group" [ngClass]="{'focused':focus1===true}">
+            <div class="input-group input-group-alternative mb-4">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="ni ni-zoom-split-in"></i></span>
+                </div>
+                <input class="form-control" value="{{selectedProtocol}}" placeholder="Search" type="text" (focus)="focus1=true" (blur)="focus1=false"  [(ngModel)]="selectedProtocol
+                ">  
+              </div>
+            </div>
+           </div>
+         <div class="list-group"  *ngIf="!isSelected" >
+            <li class="list-group-item" *ngFor=" let protocol of protocols"
+            [hidden]="!isSearched(protocol)"
+            (click)="select(protocol)">
+                {{protocol}}
+            </li>
+         </div>
+         <div class="form-group container" *ngIf="isSelected">
+            <label for="exampleFormControlTextarea1">Enoncé</label>
+            <textarea [(ngModel)]="info" class="form-control" id="exampleFormControlTextarea1" rows="2"></textarea>
+          </div>
+        
+        <div class="modal-footer">
+          <button type="button" class="btn " (click)="addAlert()">Ajouter</button>
+          <button type="button" class="btn btn-danger" (click)="modal.close('Save click')">Fermer</button>
+        </div>
+      </ng-template>
+            <div class="col-md-3" id="addReclamation">
+                <button class="btn btn-1 btn-outline-default" (click)="triggerModal(modalData)">
+                   <i class="fa-solid fa-pen-to-square"></i>
+                    Modifier un protocol
+                </button>           
+            </div>
+</div>
+</div>
+
+
+
+  
+  
+      

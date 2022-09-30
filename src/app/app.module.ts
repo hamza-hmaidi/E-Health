@@ -17,8 +17,7 @@ import { HomeModule } from './home/home.module';
 import { LoginComponent } from './login/login.component';
 import { ReclamationComponent } from './reclamation/reclamation.component';
 import { HttpClientModule } from '@angular/common/http';
-import { VariablesGlobales } from './shared/VariablesGlobales';
-import { AlertListComponent } from './alert-list/alert-list.component';
+import { ProtocolIneasComponent } from './protocol-ineas/protocol-ineas.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +29,7 @@ import { AlertListComponent } from './alert-list/alert-list.component';
     FooterComponent,
     LoginComponent,
     ReclamationComponent,
-    AlertListComponent,
+    ProtocolIneasComponent
   ],
   imports: [
     BrowserModule,
