@@ -1,0 +1,7 @@
+{
+    "/api/*": {
+        "target": "https://9a95-196-203-237-137.eu.ngrok.io/",
+        "secure": false,
+        "logLevel": "debug"
+    }
+}

@@ -63,7 +63,7 @@
           </div>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="javascript:void(0)">Alertes
+          <a class="nav-link" [routerLink]="['/alert']"  href="javascript:void(0)">Alertes
             <span class="sr-only">(current)</span>
           </a>
         </li>
@@ -74,24 +74,19 @@
           </a>
           <div class="dropdown-menu">
             <a [routerLink]="['/landing']" class="dropdown-item">Suivre Mes Réclamation</a>
-            <a [routerLink]="['/user-profile']" class="dropdown-item">Consulter toutes les réclamtion</a>
+            <a [routerLink]="['/reclamation']" class="dropdown-item">Consulter toutes les réclamtion</a>
           </div>
         </li>
       </ul>
       <ul class="navbar-nav align-items-lg-center ml-lg-auto">
        
-        <li class="nav-item">
-          <a class="nav-link nav-link-icon" href="https://github.com/creativetimofficial/argon-design-system-angular?ref=adsa-navbar" target="_blank" data-toggle="tooltip" title="Star us on Github">
-            <i class="fa fa-github"></i>
-            <span class="nav-link-inner--text d-lg-none">Github</span>
-          </a>
-        </li>
+       
         <li class="nav-item d-none d-lg-block ml-lg-4">
           <a href="https://www.creative-tim.com/product/argon-design-system-angular?ref=adsa-navbar" target="_blank" class="btn btn-neutral btn-icon">
             <span class="btn-inner--icon">
               <i class="fa fa-cloud-download mr-2"></i>
             </span>
-            <span class="nav-link-inner--text">Download</span>
+            <span class="nav-link-inner--text">{{role}}</span>
           </a>
         </li>
       </ul>

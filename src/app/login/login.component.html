@@ -19,12 +19,7 @@
                 <small>Sign in with</small>
               </div>
               <div class="btn-wrapper text-center">
-                <a href="javascript:void(0)" class="btn btn-neutral btn-icon">
-                  <span class="btn-inner--icon">
-                    <img src="./assets/img/icons/common/github.svg">
-                  </span>
-                  <span class="btn-inner--text">Github</span>
-                </a>
+            
                 <a href="javascript:void(0)" class="btn btn-neutral btn-icon">
                   <span class="btn-inner--icon">
                     <img src="./assets/img/icons/common/google.svg">
@@ -43,7 +38,7 @@
                     <div class="input-group-prepend">
                       <span class="input-group-text"><i class="ni ni-email-83"></i></span>
                     </div>
-                    <input class="form-control" placeholder="Email" type="email" (focus)="focus=true" (blur)="focus=false">
+                    <input [(ngModel)]="email" class="form-control" placeholder="Email" type="email" (focus)="focus=true" (blur)="focus=false">
                   </div>
                 </div>
                 <div class="form-group" [ngClass]="{'focused':focus1===true}">
@@ -51,7 +46,7 @@
                     <div class="input-group-prepend">
                       <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
                     </div>
-                    <input class="form-control" placeholder="Password" type="password" (focus)="focus1=true" (blur)="focus1=false">
+                    <input [(ngModel)]="password" class="form-control" placeholder="Password" type="password" (focus)="focus1=true" (blur)="focus1=false">
                   </div>
                 </div>
                 <div class="custom-control custom-control-alternative custom-checkbox">
@@ -61,7 +56,7 @@
                   </label>
                 </div>
                 <div class="text-center">
-                  <button type="button" class="btn btn-primary my-4">Sign in</button>
+                  <button type="button" class="btn btn-primary my-4" (click)="signin()">Sign in</button>
                 </div>
               </form>
             </div>

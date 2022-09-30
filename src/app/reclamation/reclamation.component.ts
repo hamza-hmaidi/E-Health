@@ -20,6 +20,17 @@ export class ReclamationComponent implements OnInit {
     }, (res) => {
       this.closeModal = `Dismissed ${this.getDismissReason(res)}`;
     });
+
+    this.api.getReclamation().subscribe(
+      {
+        next:data=>{
+          console.log(data)
+        },
+        error:error=>{
+          console.log(error)
+        }
+      }
+    )
   }
   showMed(e:any):void{
     console.log(e.target.value)
@@ -60,8 +71,13 @@ export class ReclamationComponent implements OnInit {
   }
   ngOnInit(): void {
     this.api.getReclamation().subscribe(
-      data=>{
-        console.log(data)
+      {
+        next:data=>{
+          console.log(data)
+        },
+        error:error=>{
+          console.log(error)
+        }
       }
     )
   }

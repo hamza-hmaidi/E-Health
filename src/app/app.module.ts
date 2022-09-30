@@ -17,6 +17,8 @@ import { HomeModule } from './home/home.module';
 import { LoginComponent } from './login/login.component';
 import { ReclamationComponent } from './reclamation/reclamation.component';
 import { HttpClientModule } from '@angular/common/http';
+import { VariablesGlobales } from './shared/VariablesGlobales';
+import { AlertListComponent } from './alert-list/alert-list.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,8 @@ import { HttpClientModule } from '@angular/common/http';
     NavbarComponent,
     FooterComponent,
     LoginComponent,
-    ReclamationComponent
+    ReclamationComponent,
+    AlertListComponent,
   ],
   imports: [
     BrowserModule,
